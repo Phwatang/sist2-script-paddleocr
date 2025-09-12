@@ -7,7 +7,9 @@ import typer
 def main(
     index_file: str, 
     lang="en",
-    append_only = False,
+    append_only=False,
+    text_detection_model_name="PP-OCRv5_server_det",
+    text_recognition_model_name="PP-OCRv5_server_rec",
     use_doc_orientation_classify=True, 
     use_doc_unwarping=True, 
     use_textline_orientation=True
@@ -17,6 +19,8 @@ def main(
     # Paddle OCR model initialisation
     model = PaddleOCR(
         lang=lang,
+        text_detection_model_name=text_detection_model_name,
+        text_recognition_model_name=text_recognition_model_name,
         use_doc_orientation_classify=use_doc_orientation_classify,
         use_doc_unwarping=use_doc_unwarping,
         use_textline_orientation=use_textline_orientation,
