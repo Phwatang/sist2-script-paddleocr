@@ -41,6 +41,7 @@ def main(
         all_text = "\n".join(extracts)
 
         # Record extracted text
+        doc.json_data.setdefault("content", "")
         if append_only:
             doc.json_data["content"] += all_text
         else:
