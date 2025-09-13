@@ -53,6 +53,9 @@ def main(
         print_progress(done = done, count = total)
         
     index.set("paddle_version", index.versions[-1].id)
+    index.sync_tag_table()
+    index.commit()
+    print("Done!")
 
 if __name__ == "__main__":
     typer.run(main)
